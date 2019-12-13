@@ -1,19 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>My source code Portfolio </title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ซอฟต์แวร์จำลองการเข้า และถอดรหัสโดยอัลกอลิทึมที่พัฒนาเอง</title>
+    <!-- import source code -->
+    <script type="text/javascript" src="js/primitiveDict.js"></script>
+    <script type="text/javascript" src="js/encryption.js"></script>
+    <script type="text/javascript" src="js/decryption.js"></script>
+    <!-- end-->
+    <!-- import UIkit lib -->
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/uikit.min.css" />
+    <script src="js/uikit.min.js"></script>
+    <script src="js/uikit-icons.min.js"></script>
+    <!-- end-->
+    <script type="text/javascript" >
+    function copyX(param){
+        var copyText = document.getElementById(param);
+        copyText.select();
+        copyText.setSelectionRange(0, 99999); 
+        document.execCommand("copy");
+    }
+    </script>
 </head>
-<body class="container text-center bg-success">
-<br><br>
-<p style="font-size:80px;" class="btn-warning text-primary">
-  Coming Soon ....
-</p>
-
+<body  class="uk-background-muted  uk-panel">
+    <div class="uk-container uk-align-center">
+        <h2 class=" uk-text-primary ">ซอฟต์แวร์จำลองการเข้า และถอดรหัสโดยอัลกอลิทึมที่พัฒนาเอง </h2>
+        <div class="uk-child-width-1-2@m uk-grid-small uk-grid-match " uk-grid>
+            <div>
+                <div class="uk-card uk-card-default uk-card-body">
+                    <label for="input_encryp"><h3><b>ข้อความที่ต้องการเข้ารหัส  </b></h3> 
+                    </label>
+                    <textarea cols="64" rows="4" name="input_encryp" id='input_encryp' maxlength="255" class="uk-textarea uk-form-succes" 
+                    placeholder="ระบุข้อความที่ต้องการเข้ารหัส"
+                    ></textarea>
+                    <div class="uk-align-right"><p style="color: red;"> *ไม่เกิน 255 ตัวอักษร</p></div>
+                    <button type="button" class="uk-button uk-button-primary uk-align-center" onclick="encryption()"> ENCRYPTION </button>
+                </div>
+            </div>
+            <div>
+                <div class="uk-card uk-card-default uk-card-body">
+                    <label for="output_encryp">
+                        <h3><b>ข้อความที่เข้ารหัส </b></h3>
+                    </label>
+                    <textarea cols="72" rows="6" name="output_encryp" id='output_encryp' readonly class="uk-textarea uk-form-succes"></textarea>
+                    <button type="button" class="uk-button uk-button-primary uk-align-center" onclick="copyX('output_encryp')"> คัดลอก
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="uk-child-width-1-2@m uk-grid-small uk-grid-match " uk-grid>
+            <div>
+                <div class="uk-card uk-card-default uk-card-body">
+                    <label for="input_decryp">
+                        <h3><b>ข้อความที่ต้องการถอดรหัส </b></h3>
+                    </label>
+                    <textarea  cols="72" rows="6"  name="input_decryp" id='input_decryp'  class="uk-textarea uk-form-succes"
+                    placeholder="ระบุข้อความที่ต้องการถอดรหัส"
+                    ></textarea>
+                    <button type="button" class="uk-button uk-button-primary uk-align-center" onclick="decryption()"> DECRYPTION
+                    </button>
+                </div>
+            </div>
+            <div>
+                <div class="uk-card uk-card-default uk-card-body">
+                    <label for="output_decryp">
+                        <h3><b>ข้อความที่ถอดรหัส </b></h3>
+                    </label>
+                    <textarea cols="64" rows="4"  name="output_decryp" id='output_decryp' readonly class="uk-textarea uk-form-succes"></textarea>
+                    <button type="button" class="uk-button uk-button-primary uk-align-center" onclick="copyX('output_decryp')"> คัดลอก
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </body>
 </html>
